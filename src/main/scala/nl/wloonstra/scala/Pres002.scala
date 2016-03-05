@@ -28,6 +28,9 @@ class Pres002 {
 
   numbers.map(i => i * i)
 
+  // empty list
+  Nil
+
   // tryItOut001
 
 

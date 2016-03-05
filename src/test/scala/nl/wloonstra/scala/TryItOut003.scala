@@ -9,7 +9,8 @@ class TryItOut003 extends FunSuite {
     // 1. write an object Bandit which has a play(Int) method.
     // you can call it with the numbers 1, 2 or 3.
     // 2. Choose two numbers which return a price ('cash' and 'play again') as an Option[String]
-    // For the third number, and numbers outside the range it will return None.
+    // For the third number return None.
+    // For numbers outside the range return None.
     // Use a match construction.
 
     // 3. write a method in this test class which plays the Bandit.
@@ -17,6 +18,7 @@ class TryItOut003 extends FunSuite {
     // - which number was played
     // - if there was a result, and if so, what the result was
     // Use a match construction.
+
     // 4. call the bandit with numbers 1 till 4
 
     object Bandit {
@@ -43,6 +45,7 @@ class TryItOut003 extends FunSuite {
 
     // WL: eerst implementeren t/m 3. Dan runnen voor 4. Zie de foutmelding.
     // WL: dan fixen.
+
   }
 
 

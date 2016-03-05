@@ -2,26 +2,42 @@ package nl.wloonstra.scala
 
 class Pres004 {
 
+  // Map
+  val capitals = Map("France" -> "Paris", "Japan" -> "Tokyo")
+
   // Optional
 
-  // An option is a wrapper around null
-  val unstable = true
+//  Option[Type]
+//  None
 
-  def unstableOperation(): Option[String] = {
-    if (unstable) {
-      None
-    } else {
-      Some("result was found!")
-    }
+  val city: Option[String] = capitals.get("France")
+
+  def show(x: Option[String]) = x match {
+    case Some(s) => s
+    case None => "?"
   }
 
-  // no need to check for null
-  // use matchers
+  show(capitals.get("France"))
+  // "Paris"
+  show(capitals.get("Japan"))
+  // "Tokyo"
+  show(capitals.get("Holland"))
+  // "?"
 
-  val result = unstableOperation()
-  result match {
-    case None => // return 500
-    case Some(r) => // return 200 with result r
+  // Why?
+  // Option[String] more clear it can be None than String can be null
+  // Using a value before checking null: is now a type error
+
+  // Example with List functions, pattern matching and tail recursion
+
+  def sum(list: List[Int]): Int = list match {
+    case Nil => 0
+    case head :: tail => head + sum(tail)
   }
+
+  sum(List(1, 2, 3, 4))
+  // 10
+
+  // TryItOut003
 
 }
