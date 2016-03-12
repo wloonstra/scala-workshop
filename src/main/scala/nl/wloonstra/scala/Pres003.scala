@@ -7,15 +7,15 @@ class Pres003 {
   // has fields (assign them val or var or not (= private))
 
   class Person(name: String, val age: Int) {
-    def description() = {
-      name + " is " + age + " years old."
+    def introduceYourself() = {
+      "Hello. My name is " + name + " and I am " + age + " years old."
     }
   }
 
-  val me = new Person("Wiggert", 29)
-  me.age
-  // won't compile: println(me.name)
-  me.description()
+  val wiggert = new Person("Wiggert", 29)
+  wiggert.age
+  // wiggert.name // won't compile
+  wiggert.introduceYourself()
 
   // No statics in class
   // Use Object
@@ -34,9 +34,5 @@ class Pres003 {
   // Like a pojo
   // By default: all fields are val
   // By default: equals, hashcode, toString
-
-  // TryItOut002
-
-
 
 }

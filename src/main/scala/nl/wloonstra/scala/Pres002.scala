@@ -34,9 +34,5 @@ class Pres002 {
   numbers.filter(i => i > 6)
   numbers.filter(_ > 6)
 
-  // tryItOut002
-
-
-
 
 }

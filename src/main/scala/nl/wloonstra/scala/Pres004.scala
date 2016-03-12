@@ -12,20 +12,37 @@ class Pres004 {
 
   val city: Option[String] = capitals.get("France")
 
-  def show(x: Option[String]) = x match {
+  def show1(x: Option[String]) = {
+    if (x.isDefined) {
+      x.get
+    } else {
+      "?"
+    }
+  }
+
+  show1(capitals.get("France"))
+  // "Paris"
+  show1(capitals.get("Japan"))
+  // "Tokyo"
+  show1(capitals.get("Holland"))
+  // "?"
+
+  // matching
+
+  def show2(x: Option[String]) = x match {
     case Some(s) => s
     case None => "?"
   }
 
-  show(capitals.get("France"))
+  show2(capitals.get("France"))
   // "Paris"
-  show(capitals.get("Japan"))
+  show2(capitals.get("Japan"))
   // "Tokyo"
-  show(capitals.get("Holland"))
+  show2(capitals.get("Holland"))
   // "?"
 
   // Why?
-  // Option[String] more clear it can be None than String can be null
+  // Option[String] more clear it can be None, than String can be null
   // Using a value before checking null: is now a type error
 
   // Example with List functions, pattern matching and tail recursion
@@ -37,7 +54,5 @@ class Pres004 {
 
   sum(List(1, 2, 3, 4))
   // 10
-
-  // TryItOut003
 
 }

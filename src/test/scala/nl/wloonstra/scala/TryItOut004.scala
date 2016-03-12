@@ -1,53 +1,82 @@
 package nl.wloonstra.scala
 
 import org.scalatest.FunSuite
-import sun.security.krb5.internal.crypto.Nonce
+
+import scala.util.Random
 
 class TryItOut004 extends FunSuite {
 
   test("Playing a Bandit") {
-    // 1. write an object Bandit which has a play(Int) method.
-    // you can call it with the numbers 1, 2 or 3.
-    // 2. Choose two numbers which return a price ('cash' and 'play again') as an Option[String]
-    // For the third number return None.
-    // For numbers outside the range return None.
-    // Use a match construction.
+    // We are going to program a bandit machine. To simplify the options, the bandit machine will return
+    // one of these three String:
+    // A. "cash"
+    // B. "play again"
+    // C. "nothing"
 
-    // 3. write a method in this test class which plays the Bandit.
-    // for each play it will print a nice string telling you:
-    // - which number was played
-    // - if there was a result, and if so, what the result was
-    // Use a match construction.
+    // 1. write an object Bandit which has a play() method.
+    // Let it randomly return one of the states.
+    // Use: scala.util.Random (search for scalaDoc)
+    // Use: pattern matching
 
-    // 4. call the bandit with numbers 1 till 4
+    // 2. write a method in this test class which plays the Bandit.
+
+    // 3. play the bandit multiple times
+
 
     object Bandit {
-      def play(number: Int) = number match {
-        case 1 => None
-        case 2 => Some("play again")
-        case 3 => Some("cash!")
-        case _ => None
+      def play() = {
+        val number = Random.nextInt(3)
+        number match {
+
+          case 0 => println("cash!")
+          case 1 => println("play again")
+          case 2 => println("nothing")
+        }
       }
     }
 
-    def playBandit(number: Int) = {
-      val winningPart = Bandit.play(number) match {
-        case Some(result) => "You have won " + result
-        case None => "You didn't win anything."
-      }
-      println("Played the number " + number + ". " + winningPart)
-    }
 
-    playBandit(1)
-    playBandit(2)
-    playBandit(3)
-    playBandit(4)
+    Bandit.play()
+    Bandit.play()
+    Bandit.play()
+    Bandit.play()
+    Bandit.play()
 
     // WL: eerst implementeren t/m 3. Dan runnen voor 4. Zie de foutmelding.
     // WL: dan fixen.
-
   }
 
+  test("Paper / Scissors / Stone") {
+    // In the 2-player game 'paper, scissors, stone' each player has to choose one of the three options.
+    // The following applies:
+    // - paper vs scissors: scissors wins
+    // - paper vs stone: paper wins
+    // - scissors vs stone: stone wins
+    // - same choice: nobody wins
+
+    // 1) implement this with a play(x, y) method which accepts the choice of player1 and player2 as arguments
+    //    use pattern matching for a tuple of two arguments
+    //    you might want to use case classes for the options and let them all extend a super class
 
 
+    class GameSelection
+    case class Paper() extends GameSelection
+    case class Scissors() extends GameSelection
+    case class Stone() extends GameSelection
+
+    object PSSGame {
+      def play(selection1: GameSelection, selection2: GameSelection) = (selection1, selection2) match {
+        case (s1, s2) if (s1 == s2) => "Tie"
+        case (Paper(), s2) if (s2 == Stone()) => "Player 1 wins"
+        case (Scissors(), s2) if (s2 == Paper()) => "Player 1 wins"
+        case (Stone(), s2) if (s2 == Scissors()) => "Player 1 wins"
+        case _ => "Player 2 wins"
+      }
+    }
+
+    println(PSSGame.play(Paper(), Stone()))
+    println(PSSGame.play(Paper(), Scissors()))
+    println(PSSGame.play(Paper(), Paper()))
+
+  }
 }

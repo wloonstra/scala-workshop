@@ -39,8 +39,5 @@ class Pres001 {
     if (x > y) x else y
   }
 
-  // TryItOut001
-
-
 
 }
