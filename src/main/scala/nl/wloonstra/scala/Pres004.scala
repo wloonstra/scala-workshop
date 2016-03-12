@@ -3,21 +3,20 @@ package nl.wloonstra.scala
 class Pres004 {
 
   // Map
-  val capitals = Map("France" -> "Paris", "Japan" -> "Tokyo")
+  val capitals: Map[String, String] = Map("France" -> "Paris", "Japan" -> "Tokyo")
 
   // Optional
 
 //  Option[Type]
 //  None
 
+  val name1: Option[String] = Some("Wiggert") 
+  val name2: Option[String] = None
+
   val city: Option[String] = capitals.get("France")
 
   def show1(x: Option[String]) = {
-    if (x.isDefined) {
-      x.get
-    } else {
-      "?"
-    }
+    if (x.isDefined) x.get else "?"
   }
 
   show1(capitals.get("France"))

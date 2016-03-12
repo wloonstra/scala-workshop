@@ -12,10 +12,15 @@ class Pres005 {
   // Java and Scala
   // implicit conversion: where needed, it converts an object into something else specified
 
+
+  def something(names: java.util.List[String]) = {
+    // do something with names
+  }
+
   def useScalaInJavaEnvironmentWrong() = {
     val scalaEnthusiasts: List[String] = List("Robin", "Wiggert")
 
-//    javaFunction(scalaEnthusiasts)
+//    something(scalaEnthusiasts)
   }
 
   def useScalaInJavaEnvironmentCorrect() = {
@@ -23,15 +28,16 @@ class Pres005 {
 
     val scalaEnthusiasts: List[String] = List("Robin", "Wiggert")
 
-    javaFunction(scalaEnthusiasts.asJava)
+    something(scalaEnthusiasts.asJava)
   }
 
-  def javaFunction(names: java.util.List[String]) = {
-    // do something with names
+
+  def javaFunctionWithInts(javaInts: java.util.List[java.lang.Integer]) = {
+    // do something with the ints
   }
 
   def useScalaInJavaEnvironmentExtended() = {
-    // watch out for ints
+    // watch out for type of element in list
     import scala.collection.JavaConverters._
 
     val scalaNumbers: List[Int] = List(1, 2, 3, 4, 5, 6)
@@ -42,8 +48,6 @@ class Pres005 {
     javaFunctionWithInts(scalaNumbers.map(i => i: java.lang.Integer).asJava)
   }
 
-  def javaFunctionWithInts(javaInts: java.util.List[java.lang.Integer]) = {
-    // do something with the ints
-  }
+
 
 }

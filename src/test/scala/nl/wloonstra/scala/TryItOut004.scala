@@ -42,8 +42,6 @@ class TryItOut004 extends FunSuite {
     Bandit.play()
     Bandit.play()
 
-    // WL: eerst implementeren t/m 3. Dan runnen voor 4. Zie de foutmelding.
-    // WL: dan fixen.
   }
 
   test("Paper / Scissors / Stone") {
