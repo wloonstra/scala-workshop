@@ -8,7 +8,7 @@ class Pres002 {
 
 //  Lists are always immutable
 
-//  adding delivers a new list:
+//  adding an element creates a new list which you can assign
 
   val moreNumbers = 4 :: numbers
 
@@ -17,21 +17,24 @@ class Pres002 {
   numbers(0)
 
   numbers.filter(i => i > 6)
-  numbers.filter(_ > 6)
   numbers.count(i => i < 6)
 
   numbers.head // 5
-  numbers.tail // 6, 7, 8, 9
+  numbers.tail // List(6, 7, 8, 9)
 
-  numbers.init // 5, 6, 7, 8
+  numbers.init // List(5, 6, 7, 8)
   numbers.last // 9
 
-  numbers.map(i => i * i)
+  numbers.map(i => i + 1)
 
   // empty list
   Nil
 
-  // tryItOut001
+  // underscore notation
+  numbers.filter(i => i > 6)
+  numbers.filter(_ > 6)
+
+  // tryItOut002
 
 
 

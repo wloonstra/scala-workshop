@@ -10,7 +10,7 @@ class Pres001 {
 //
 //  function value is an object
 
-  val sum: Int = 1 + 2
+  val favoriteNumber: Int = 31
 
   val name: String = "Wiggert"
   val nameWithoutType = "Wiggert"
@@ -21,6 +21,8 @@ class Pres001 {
 
   var time = "12:00"
   time = "13:00"
+
+
 
 //  Some functions:
 
@@ -37,6 +39,7 @@ class Pres001 {
     if (x > y) x else y
   }
 
+  // TryItOut001
 
 
 

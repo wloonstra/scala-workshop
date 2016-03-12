@@ -1,53 +1,21 @@
 package nl.wloonstra.scala
 
 import org.scalatest.FunSuite
-import sun.security.krb5.internal.crypto.Nonce
 
 class TryItOut003 extends FunSuite {
 
-  test("Playing a Bandit") {
-    // 1. write an object Bandit which has a play(Int) method.
-    // you can call it with the numbers 1, 2 or 3.
-    // 2. Choose two numbers which return a price ('cash' and 'play again') as an Option[String]
-    // For the third number return None.
-    // For numbers outside the range return None.
-    // Use a match construction.
+  test("numbers written as words: which length of the word is the same as the value?") {
+    // In this example we are going to compare a number (like '1') which its written out representation ('one')
+    // and its length ('one' has length 3)
 
-    // 3. write a method in this test class which plays the Bandit.
-    // for each play it will print a nice string telling you:
-    // - which number was played
-    // - if there was a result, and if so, what the result was
-    // Use a match construction.
+    // 1) define a case class which holds a number (Int) and its written out representation
+    // 2) assign a list to a val with instances of this case class for values 1 till 5
+    // 3) filter the list to only those values for which the length of the written out word is the same as its value itself
+    // 4) print the result
 
-    // 4. call the bandit with numbers 1 till 4
-
-    object Bandit {
-      def play(number: Int) = number match {
-        case 1 => None
-        case 2 => Some("play again")
-        case 3 => Some("cash!")
-        case _ => None
-      }
-    }
-
-    def playBandit(number: Int) = {
-      val winningPart = Bandit.play(number) match {
-        case Some(result) => "You have won " + result
-        case None => "You didn't win anything."
-      }
-      println("Played the number " + number + ". " + winningPart)
-    }
-
-    playBandit(1)
-    playBandit(2)
-    playBandit(3)
-    playBandit(4)
-
-    // WL: eerst implementeren t/m 3. Dan runnen voor 4. Zie de foutmelding.
-    // WL: dan fixen.
-
+    case class MyNumber(number: Int, description: String)
+    val numbers = List(MyNumber(1, "one"), MyNumber(2, "two"), MyNumber(3, "three"), MyNumber(4, "four"), MyNumber(5, "five"))
+    val filtered = numbers.filter(mn => mn.number == mn.description.length)
+    println(filtered)
   }
-
-
-
 }
