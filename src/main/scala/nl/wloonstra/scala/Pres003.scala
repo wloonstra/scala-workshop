@@ -3,8 +3,8 @@ package nl.wloonstra.scala
 class Pres003 {
 
   // class
-  // has methods (parameters always val)
-  // has fields (assign them val or var or not (= private))
+  // method parameters always val // fields assign:
+  // val or var or not (= private)
 
   class Person(name: String, val age: Int) {
     def introduceYourself() = {
@@ -14,11 +14,10 @@ class Pres003 {
 
   val wiggert = new Person("Wiggert", 29)
   wiggert.age
-  // wiggert.name // won't compile
+//   wiggert.name // won't compile
   wiggert.introduceYourself()
 
-  // No statics in class
-  // Use Object
+  // No statics in class. Use 'Object'
 
   object Calculator {
     def max(x: Int, y: Int) = {

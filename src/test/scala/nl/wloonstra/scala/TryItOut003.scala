@@ -4,6 +4,17 @@ import org.scalatest.FunSuite
 
 class TryItOut003 extends FunSuite {
 
+  test("Class") {
+    // 1) Create a class Address with street, number, postal code and city
+    // 2) Create a method which prints the information like for an address label (using println)
+  }
+
+  test("Calculator") {
+    // 1) Put the calculation functions from Try It Out 1 in a Calculator Object
+    // 2) Perform a few calculations and print the result
+
+  }
+
   test("numbers written as words: which length of the word is the same as the value?") {
     // In this example we are going to compare a number (like '1') which its written out representation string ('one')
     // and the length of the representation string ('one' has length 3)
