@@ -10,7 +10,7 @@ class Pres004 {
 //  Option[Type]
 //  None
 
-  val name1: Option[String] = Some("Wiggert") 
+  val name1: Option[String] = Some("Wiggert")
   val name2: Option[String] = None
 
   val city: Option[String] = capitals.get("France")

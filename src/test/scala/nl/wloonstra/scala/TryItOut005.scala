@@ -1,31 +1,80 @@
 package nl.wloonstra.scala
 
-import java.util.Collections
-
 import org.scalatest.FunSuite
+
+import scala.util.Random
 
 class TryItOut005 extends FunSuite {
 
-  test("frequency") {
-    val months = List("a", "a", "b", "c", "a")
+  test("Playing a Bandit") {
+    // We are going to program a bandit machine. To simplify the options, the bandit machine will return
+    // one of these three String:
+    // A. "cash"
+    // B. "play again"
+    // C. "nothing"
 
-    // print the frequency of element "a" in the above
+    // 1. write an object Bandit which has a play() method.
+    // Let it randomly return one of the states.
+    // Use: scala.util.Random (search for scalaDoc)
+    // Use: pattern matching
 
-    import scala.collection.JavaConverters._
+    // 2. write a method in this test class which plays the Bandit.
 
-    println(java.util.Collections.frequency(months.asJava, "a"))
+    // 3. play the bandit multiple times
+
+
+    object Bandit {
+      def play() = {
+        val number = Random.nextInt(3)
+        number match {
+
+          case 0 => println("cash!")
+          case 1 => println("play again")
+          case 2 => println("nothing")
+        }
+      }
+    }
+
+
+    Bandit.play()
+    Bandit.play()
+    Bandit.play()
+    Bandit.play()
+    Bandit.play()
+
   }
 
-  test("max temperature") {
-    // below the max temperatures by day in Rotterdam for Februari 2016
-    // according to: http://www.accuweather.com/nl/nl/rotterdam/251688/february-weather/251688?monyr=2/1/2016
-    val tempFebRotterdam = List(12, 11, 7, 10, 11, 11, 12, 10, 8, 8, 8, 6, 4, 3, 7, 7, 4, 3, 8, 11, 11, 11, 8, 7, 6, 6, 6, 6, 6)
+  test("Paper / Scissors / Stone") {
+    // In the 2-player game 'paper, scissors, stone' each player has to choose one of the three options.
+    // The following applies:
+    // - paper vs scissors: scissors wins
+    // - paper vs stone: paper wins
+    // - scissors vs stone: stone wins
+    // - same choice: nobody wins
 
-    // 1) use the java.util.Collections.max() method to print the max temperature in Rotterdam for February 2016.
+    // 1) implement this with a play(x, y) method which accepts the choice of player1 and player2 as arguments
+    //    use pattern matching for a tuple of two arguments
+    //    you might want to use case classes for the options and let them all extend a super class
 
-    import scala.collection.JavaConverters._
-    println(Collections.max(tempFebRotterdam.map(i => i: java.lang.Integer).asJava))
+
+    class GameSelection
+    case class Paper() extends GameSelection
+    case class Scissors() extends GameSelection
+    case class Stone() extends GameSelection
+
+    object PSSGame {
+      def play(selection1: GameSelection, selection2: GameSelection) = (selection1, selection2) match {
+        case (s1, s2) if (s1 == s2) => "Tie"
+        case (Paper(), s2) if (s2 == Stone()) => "Player 1 wins"
+        case (Scissors(), s2) if (s2 == Paper()) => "Player 1 wins"
+        case (Stone(), s2) if (s2 == Scissors()) => "Player 1 wins"
+        case _ => "Player 2 wins"
+      }
+    }
+
+    println(PSSGame.play(Paper(), Stone()))
+    println(PSSGame.play(Paper(), Scissors()))
+    println(PSSGame.play(Paper(), Paper()))
 
   }
-
 }
