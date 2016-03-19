@@ -1,19 +1,15 @@
 package nl.wloonstra.scala
 
-import java.util.Collections
-
 import org.scalatest.FunSuite
 
 class TryItYourself006 extends FunSuite {
 
   test("frequency") {
-    val months = List("a", "a", "b", "c", "a")
+    val letters = List("a", "a", "b", "c", "a")
 
     // print the frequency of element "a" in the above
 
-    import scala.collection.JavaConverters._
 
-    println(java.util.Collections.frequency(months.asJava, "a"))
   }
 
   test("max temperature") {
@@ -23,8 +19,7 @@ class TryItYourself006 extends FunSuite {
 
     // 1) use the java.util.Collections.max() method to print the max temperature in Rotterdam for February 2016.
 
-    import scala.collection.JavaConverters._
-    println(Collections.max(tempFebRotterdam.map(i => i: java.lang.Integer).asJava))
+
 
   }
 

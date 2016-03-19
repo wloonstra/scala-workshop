@@ -2,8 +2,6 @@ package nl.wloonstra.scala
 
 import org.scalatest.FunSuite
 
-import scala.util.Random
-
 class TryItYourself005 extends FunSuite {
 
   test("Playing a Bandit") {
@@ -23,24 +21,7 @@ class TryItYourself005 extends FunSuite {
     // 3. play the bandit multiple times
 
 
-    object Bandit {
-      def play() = {
-        val number = Random.nextInt(3)
-        number match {
 
-          case 0 => println("cash!")
-          case 1 => println("play again")
-          case 2 => println("nothing")
-        }
-      }
-    }
-
-
-    Bandit.play()
-    Bandit.play()
-    Bandit.play()
-    Bandit.play()
-    Bandit.play()
 
   }
 
@@ -57,24 +38,7 @@ class TryItYourself005 extends FunSuite {
     //    you might want to use case classes for the options and let them all extend a super class
 
 
-    class GameSelection
-    case class Paper() extends GameSelection
-    case class Scissors() extends GameSelection
-    case class Stone() extends GameSelection
 
-    object PSSGame {
-      def play(selection1: GameSelection, selection2: GameSelection) = (selection1, selection2) match {
-        case (s1, s2) if (s1 == s2) => "Tie"
-        case (Paper(), s2) if (s2 == Stone()) => "Player 1 wins"
-        case (Scissors(), s2) if (s2 == Paper()) => "Player 1 wins"
-        case (Stone(), s2) if (s2 == Scissors()) => "Player 1 wins"
-        case _ => "Player 2 wins"
-      }
-    }
-
-    println(PSSGame.play(Paper(), Stone()))
-    println(PSSGame.play(Paper(), Scissors()))
-    println(PSSGame.play(Paper(), Paper()))
 
   }
 }

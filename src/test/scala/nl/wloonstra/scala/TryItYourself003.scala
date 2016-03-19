@@ -25,14 +25,11 @@ class TryItYourself003 extends FunSuite {
     // the numbers value itself
     // 4) print the result
 
-    case class MyNumber(number: Int, description: String)
-    val numbers = List(MyNumber(1, "one"), MyNumber(2, "two"), MyNumber(3, "three"), MyNumber(4, "four"), MyNumber(5, "five"))
-    val filtered = numbers.filter(mn => mn.number == mn.description.length)
-    println(filtered)
+
   }
 
   test("try the above with the word: 'vierentwintigletterwoord'") {
 
-    println("vierentwintigletterwoord".length)
+
   }
 }

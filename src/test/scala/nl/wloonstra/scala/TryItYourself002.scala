@@ -11,18 +11,6 @@ class TryItYourself002 extends FunSuite {
     // 4) map the list 'numbers' to a list with the length of each string. Use the function from 1)
     // 5) print the result
 
-    def toSize(s: String) = s.length
 
-    println(toSize("java"))
-    println(toSize("scala"))
-    println(toSize("oracle"))
-
-    val numbers = List("one", "two", "three", "four", "five")
-
-    println(numbers.map(s => toSize(s)))
-    // or
-    println(numbers.map(toSize(_)))
-    // or
-    println(numbers.map(toSize))
   }
 }
