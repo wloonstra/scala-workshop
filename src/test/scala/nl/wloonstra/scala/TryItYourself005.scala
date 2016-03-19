@@ -4,7 +4,7 @@ import org.scalatest.FunSuite
 
 import scala.util.Random
 
-class TryItOut005 extends FunSuite {
+class TryItYourself005 extends FunSuite {
 
   test("Playing a Bandit") {
     // We are going to program a bandit machine. To simplify the options, the bandit machine will return

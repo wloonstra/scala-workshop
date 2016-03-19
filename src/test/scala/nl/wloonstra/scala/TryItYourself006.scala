@@ -4,7 +4,7 @@ import java.util.Collections
 
 import org.scalatest.FunSuite
 
-class TryItOut006 extends FunSuite {
+class TryItYourself006 extends FunSuite {
 
   test("frequency") {
     val months = List("a", "a", "b", "c", "a")

@@ -2,7 +2,7 @@ package nl.wloonstra.scala
 
 import org.scalatest.FunSuite
 
-class TryItOut004 extends FunSuite {
+class TryItYourself004 extends FunSuite {
 
   class Point(val x: Int, val y: Int)
 

@@ -2,7 +2,7 @@ package nl.wloonstra.scala
 
 import org.scalatest.FunSuite
 
-class TryItOut002 extends FunSuite {
+class TryItYourself002 extends FunSuite {
 
   test("Experimenting with lists") {
     // 1) write a function that takes a String and returns the length of the String

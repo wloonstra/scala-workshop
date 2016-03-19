@@ -2,7 +2,7 @@ package nl.wloonstra.scala
 
 import org.scalatest.FunSuite
 
-class TryItOut001 extends FunSuite {
+class TryItYourself001 extends FunSuite {
 
   test("Play with some val's and var's. See what's possible and what not.") {
     val scala = "fun"

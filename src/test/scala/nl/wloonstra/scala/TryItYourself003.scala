@@ -2,7 +2,7 @@ package nl.wloonstra.scala
 
 import org.scalatest.FunSuite
 
-class TryItOut003 extends FunSuite {
+class TryItYourself003 extends FunSuite {
 
   test("Class") {
     // 1) Create a class Address with street, number, postal code and city
