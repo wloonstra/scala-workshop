@@ -2,52 +2,56 @@ package nl.wloonstra.scala
 
 class Pres005 {
 
-  // Combination with Java
+  // Map
+  val capitals: Map[String, String] = Map("France" -> "Paris", "Japan" -> "Tokyo")
 
-  // All code on jvm, so scala and java class can call each other!
+  // Optional
 
-  // Maven to include scala:
-  // <>
+//  Option[Type]
+//  None
 
-  // Java and Scala
-  // implicit conversion: where needed, it converts an object into something else specified
+  val name1: Option[String] = Some("Wiggert")
+  val name2: Option[String] = None
 
+  val city: Option[String] = capitals.get("France")
 
-  def something(names: java.util.List[String]) = {
-    // do something with names
+  def show1(x: Option[String]) = {
+    if (x.isDefined) x.get else "?"
   }
 
-  def useScalaInJavaEnvironmentWrong() = {
-    val scalaEnthusiasts: List[String] = List("Robin", "Wiggert")
+  show1(capitals.get("France"))
+  // "Paris"
+  show1(capitals.get("Japan"))
+  // "Tokyo"
+  show1(capitals.get("Holland"))
+  // "?"
 
-//    something(scalaEnthusiasts)
+  // matching
+
+  def show2(x: Option[String]) = x match {
+    case Some(s) => s
+    case None => "?"
   }
 
-  def useScalaInJavaEnvironmentCorrect() = {
-    import scala.collection.JavaConverters._
+  show2(capitals.get("France"))
+  // "Paris"
+  show2(capitals.get("Japan"))
+  // "Tokyo"
+  show2(capitals.get("Holland"))
+  // "?"
 
-    val scalaEnthusiasts: List[String] = List("Robin", "Wiggert")
+  // Why?
+  // Option[String] more clear it can be None, than String can be null
+  // Using a value before checking null: is now a type error
 
-    something(scalaEnthusiasts.asJava)
+  // Example with List functions, pattern matching and tail recursion
+
+  def sum(list: List[Int]): Int = list match {
+    case Nil => 0
+    case head :: tail => head + sum(tail)
   }
 
-
-  def javaFunctionWithInts(javaInts: java.util.List[java.lang.Integer]) = {
-    // do something with the ints
-  }
-
-  def useScalaInJavaEnvironmentExtended() = {
-    // watch out for type of element in list
-    import scala.collection.JavaConverters._
-
-    val scalaNumbers: List[Int] = List(1, 2, 3, 4, 5, 6)
-
-//    javaFunctionWithInts(scalaNumbers.asJava)
-
-    // now you have to do some magic:
-    javaFunctionWithInts(scalaNumbers.map(i => i: java.lang.Integer).asJava)
-  }
-
-
+  sum(List(1, 2, 3, 4))
+  // 10
 
 }
