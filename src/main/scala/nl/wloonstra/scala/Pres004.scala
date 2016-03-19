@@ -28,7 +28,7 @@ class Pres004 {
 
 
 
-  class Rationa2(val numer: Int, val denom: Int)
+  class Rational2(val numer: Int, val denom: Int)
 
   val twoThird = new Rational(2, 3)
 

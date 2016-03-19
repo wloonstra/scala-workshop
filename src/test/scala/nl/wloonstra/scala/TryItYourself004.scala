@@ -14,9 +14,10 @@ class TryItYourself004 extends FunSuite {
     // 5. refactor your solution from 3) to use a trait which contains the surface method
     // 6. test it
 
-    // hint: a def in a trait can be a val in the class
+    // hint: a def in a trait can be a val in the class that is mixing it in
 
 
+    
     // version 1 - step 1-4
 
     class RectangleV1(leftTop: Point, rightBottom: Point) {
