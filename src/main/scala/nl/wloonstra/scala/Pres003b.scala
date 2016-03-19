@@ -28,7 +28,7 @@ class Pres003b {
 
 
 
-  class Rationa2(numer: Int, denom: Int)
+  class Rationa2(val numer: Int, val denom: Int)
 
   val twoThird = new Rational(2, 3)
 
@@ -36,7 +36,7 @@ class Pres003b {
   //  ---
   //   3
 
-  class Rational(numer: Int, denom: Int) {
+  class Rational(val numer: Int, val denom: Int) {
     def < (that: Rational) = {
       this.numer * that.denom > that.numer * this.denom
     }
@@ -48,7 +48,7 @@ class Pres003b {
 
   // Solution with traits
 
-  class Rational3(numer: Int, denom: Int) extends Ordered[Rational3] {
+  class Rational3(val numer: Int, val denom: Int) extends Ordered[Rational3] {
     def compare(that: Rational3) =
       (this.numer * that.denom) - (that.numer * this.denom)
   }
